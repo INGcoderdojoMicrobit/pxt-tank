@@ -51,3 +51,23 @@ function doMalujBiegi(kol: number, ile: number) {
         led.unplot(kol, 4 - i)
     }
 }
+
+basic.showIcon(IconNames.Heart)
+motor.MotorRun(motor.Motors.M1, 1, 255)
+motor.MotorRun(motor.Motors.M2, -1, 255)
+basic.pause(1000)
+motor.MotorRun(motor.Motors.M1, 1, 255)
+motor.MotorRun(motor.Motors.M2, 1, 255)
+basic.pause(1000)
+motor.MotorRun(motor.Motors.M1, 1, 100)
+motor.MotorRun(motor.Motors.M2, -1, 100)
+basic.pause(1000)
+motor.MotorRun(motor.Motors.M1, -1, 100)
+motor.MotorRun(motor.Motors.M2, 1, 100)
+basic.pause(1000)
+motor.MotorRun(motor.Motors.M1, -1, 255)
+motor.MotorRun(motor.Motors.M2, 1, 255)
+basic.pause(1000)
+motor.motorStopAll()
+basic.showIcon(IconNames.Yes)
+basic.clearScreen()
