@@ -6,6 +6,7 @@ radio.onReceivedString(function (receivedString) {
     ppredkosc = parseInt(receivedString.substr(5, 3))
     pk = parseInt(receivedString.charAt(1))
     if (pk == 0) { pk = -1 }
+    klawisz = parseInt(receivedString.substr(8, 1))
 
 
     //serial.writeLine("l=" + lpredkosc + " w=" + lk + " p=" + ppredkosc + " w=" + pk)
@@ -16,6 +17,13 @@ radio.onReceivedString(function (receivedString) {
     motor.MotorRun(motor.Motors.M2, -pk, ppredkosc)
     //motor.MotorRun(motor.Motors.M4, -pk, ppredkosc)
 
+    if (klawisz==1) {
+        motor.servo(motor.Servos.S8,255)
+    }
+    if (klawisz==2) {
+        motor.servo(motor.Servos.S8,0)
+    }
+    
     doMalujBiegi(0, Math.floor(Math.map(lpredkosc, 0, 240, 0, 5)))
     doMalujBiegi(4, Math.floor(Math.map(ppredkosc, 0, 240, 0, 5)))
     //serial.writeLine("l=" + Math.map(ppredkosc, 0, 240, 0, 5))
@@ -39,6 +47,7 @@ let lpredkosc = 0
 let ppredkosc = 0
 let lk = 0
 let pk = 0
+let klawisz = 0
 radio.setGroup(1)
 
 //basic.showIcon(IconNames.Heart)
