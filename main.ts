@@ -18,10 +18,12 @@ radio.onReceivedString(function (receivedString) {
     //motor.MotorRun(motor.Motors.M4, -pk, ppredkosc)
 
     if (klawisz==1) {
-        motor.servo(motor.Servos.S8,255)
+        //motor.servo(motor.Servos.S8,255)
+        pins.analogWritePin(AnalogPin.P1, 1023)
     }
     if (klawisz==2) {
         motor.servo(motor.Servos.S8,0)
+        pins.analogWritePin(AnalogPin.P1, 0)
     }
     
     doMalujBiegi(0, Math.floor(Math.map(lpredkosc, 0, 240, 0, 5)))
